@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking – Glory Hair Salon LD</title>
+  <meta name="description"
+    content="Form booking sederhana Glory Hair Salon LD. Kirim data nama, nomor WhatsApp, pilihan layanan, dan jadwal yang diinginkan, lalu teruskan ke WhatsApp admin." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png" />
+
+  <!-- Tailwind CDN Config -->
+  <script>
+    tailwind = window.tailwind || {};
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            glory: {
+              bg: '#050507',
+              panel: '#101015',
+              soft: '#15151c',
+              gold: '#d4af37',
+              'gold-soft': '#f1e2b8',
+            }
+          },
+          boxShadow: {
+            'glory-soft': '0 18px 40px rgba(0,0,0,0.75)',
+          },
+          borderRadius: {
+            '3xl': '1.5rem',
+          },
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body
+  class="min-h-screen bg-[radial-gradient(circle_at_top,#18151b_0,#050507_55%,#000000_100%)] text-zinc-100 font-sans antialiased">
+  <div class="flex min-h-screen flex-col">
+    <!-- HEADER -->
+    <header
+      class="sticky top-0 z-50 border-b border-yellow-500/40 bg-black/80 backdrop-blur-md supports-[backdrop-filter]:bg-black/60">
+      <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:h-20">
+        <!-- Brand -->
+        <a href="index.html" class="flex items-center gap-3">
+          <div
+            class="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-black shadow-[0_0_0_1px_rgba(212,175,55,0.7),0_10px_25px_rgba(0,0,0,0.85)]">
+            <!-- Logo image -->
+            <img src="images/logo.png" alt="Glory Hair Salon LD" class="h-full w-full object-cover" />
+          </div>
+          <div class="flex flex-col">
+            <span
+              class="text-[0.7rem] font-semibold tracking-[0.2em] text-glory-gold-soft sm:text-[0.75rem] uppercase">GLORY
+              HAIR SALON LD</span>
+            <span class="text-[0.7rem] text-zinc-400">Women-Only Hair Studio • Loa Duri Ilir</span>
+          </div>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden items-center gap-6 text-[0.82rem] text-zinc-300 md:flex">
+          <div class="flex items-center gap-4">
+            <a href="index.html" class="relative pb-0.5 hover:text-glory-gold-soft">
+              <span>Home</span>
+            </a>
+            <a href="services.html" class="relative pb-0.5 hover:text-glory-gold-soft">
+              <span>Services</span>
+            </a>
+            <a href="gallery.html" class="relative pb-0.5 hover:text-glory-gold-soft">
+              <span>Gallery</span>
+            </a>
+            <a href="price.html" class="relative pb-0.5 hover:text-glory-gold-soft">Price</a>
+            <a href="booking.html" class="relative pb-0.5 text-glory-gold-soft">
+              <span>Booking</span>
+              <span
+                class="absolute inset-x-0 -bottom-0.5 h-px bg-gradient-to-r from-yellow-400 via-amber-300 to-yellow-500"></span>
+            </a>
+            <a href="about.html" class="relative pb-0.5 hover:text-glory-gold-soft">About</a>
+            <a href="contact.html" class="relative pb-0.5 hover:text-glory-gold-soft">Contact</a>
+          </div>
+          <button type="button" onclick="openWhatsApp()"
+            class="inline-flex items-center gap-1.5 rounded-full border border-yellow-500/60 bg-gradient-to-br from-yellow-200/20 via-stone-900 to-black px-3.5 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-glory-gold-soft shadow-[0_10px_24px_rgba(0,0,0,0.9)] hover:border-yellow-300 hover:from-yellow-100/40 hover:via-stone-900 hover:to-black">
+            <img src="images/logo-WA.png" alt="WhatsApp logo" class="h-4 w-4" />
+            <span>Chat via WhatsApp</span>
+          </button>
+        </nav>
+
+        <!-- Mobile burger -->
+        <button type="button" onclick="toggleMobileNav()"
+          class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-yellow-500/70 bg-black/80 text-yellow-400 md:hidden">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="relative block h-[2px] w-4 rounded-full bg-yellow-400">
+            <span class="absolute -top-1.5 block h-[2px] w-4 rounded-full bg-yellow-400"></span>
+            <span class="absolute top-1.5 block h-[2px] w-4 rounded-full bg-yellow-400"></span>
+          </span>
+        </button>
+      </div>
+
+      <!-- Mobile nav -->
+      <div id="mobileNav" class="hidden border-t border-yellow-500/30 bg-black/95 md:hidden">
+        <div class="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-3 text-sm text-zinc-200">
+          <a href="index.html" class="py-1" onclick="toggleMobileNav()">Home</a>
+          <a href="services.html" class="py-1" onclick="toggleMobileNav()">Services</a>
+          <a href="gallery.html" class="py-1" onclick="toggleMobileNav()">Gallery</a>
+          <a href="price.html" class="py-1" onclick="toggleMobileNav()">Price</a>
+          <a href="booking.html" class="py-1 text-glory-gold-soft" onclick="toggleMobileNav()">Booking</a>
+          <a href="about.html" class="py-1" onclick="toggleMobileNav()">About</a>
+          <a href="contact.html" class="py-1" onclick="toggleMobileNav()">Contact</a>
+          <button type="button" onclick="openWhatsApp()"
+            class="mt-1 inline-flex w-full items-center justify-center gap-1.5 rounded-full border border-yellow-500/60 bg-gradient-to-br from-yellow-200/20 via-stone-900 to-black px-3.5 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-glory-gold-soft shadow-[0_10px_24px_rgba(0,0,0,0.9)]">
+            <img src="images/logo-WA.png" alt="WhatsApp logo" class="h-4 w-4" />
+            <span>Chat via WhatsApp</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1">
+      <!-- HERO BOOKING -->
+      <section class="py-10 sm:py-14">
+        <div class="mx-auto max-w-6xl px-5">
+          <div
+            class="grid gap-8 rounded-3xl border border-yellow-500/40 bg-black/80 p-5 text-[0.9rem] text-zinc-200 shadow-[0_20px_50px_rgba(0,0,0,0.95)] md:grid-cols-[minmax(0,1.35fr)_minmax(0,1.1fr)] md:p-7">
+            <!-- Form area -->
+            <div>
+              <p
+                class="inline-flex items-center gap-2 rounded-full border border-yellow-500/50 bg-black/60 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-glory-gold-soft">
+                <span class="h-1.5 w-1.5 rounded-full bg-yellow-400 shadow-[0_0_0_4px_rgba(250,204,21,0.28)]"></span>
+                <span>Form booking sederhana</span>
+              </p>
+              <h1
+                class="mt-4 text-2xl font-semibold tracking-[0.18em] text-zinc-50 sm:text-[2rem] sm:leading-snug sm:tracking-[0.22em]">
+                Kirim detail booking ke WhatsApp</h1>
+              <p class="mt-4 max-w-xl text-[0.94rem] text-zinc-200">
+                Form ini membantu kamu menyusun data booking dengan rapi sebelum dikirim ke WhatsApp admin Glory Hair
+                Salon LD. Setelah menekan tombol kirim, data akan dibuka di WhatsApp dan bisa kamu cek lagi sebelum
+                dikirim.</p>
+
+              <form id="bookingForm" class="mt-5 space-y-4 text-[0.86rem]" onsubmit="handleBookingSubmit(event)">
+                <div class="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label for="nama" class="mb-1 block text-[0.8rem] text-zinc-300">Nama lengkap</label>
+                    <input id="nama" name="nama" type="text" required
+                      class="w-full rounded-xl border border-white/15 bg-black/70 px-3 py-2 text-sm text-zinc-100 outline-none ring-0 placeholder:text-zinc-500 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-500"
+                      placeholder="Nama kamu" />
+                  </div>
+                  <div>
+                    <label for="whatsapp" class="mb-1 block text-[0.8rem] text-zinc-300">Nomor WhatsApp</label>
+                    <input id="whatsapp" name="whatsapp" type="tel" required
+                      class="w-full rounded-xl border border-white/15 bg-black/70 px-3 py-2 text-sm text-zinc-100 outline-none ring-0 placeholder:text-zinc-500 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-500"
+                      placeholder="Contoh: 08xxxxxxxxxx" />
+                  </div>
+                </div>
+
+                <div class="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label for="tanggal" class="mb-1 block text-[0.8rem] text-zinc-300">Tanggal yang diinginkan</label>
+                    <input id="tanggal" name="tanggal" type="date"
+                      class="w-full rounded-xl border border-white/15 bg-black/70 px-3 py-2 text-sm text-zinc-100 outline-none ring-0 placeholder:text-zinc-500 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-500" />
+                  </div>
+                  <div>
+                    <label for="waktu" class="mb-1 block text-[0.8rem] text-zinc-300">Perkiraan jam kedatangan</label>
+                    <input id="waktu" name="waktu" type="time"
+                      class="w-full rounded-xl border border-white/15 bg-black/70 px-3 py-2 text-sm text-zinc-100 outline-none ring-0 placeholder:text-zinc-500 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-500" />
+                    <p class="mt-1 text-[0.75rem] text-zinc-500">Jam operasional: 10.00 &ndash; 17.00 WITA.</p>
+                  </div>
+                </div>
+
+                <div class="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label for="layanan" class="mb-1 block text-[0.8rem] text-zinc-300">Layanan yang diinginkan</label>
+                    <select id="layanan" name="layanan"
+                      class="w-full rounded-xl border border-white/15 bg-black/70 px-3 py-2 text-sm text-zinc-100 outline-none ring-0 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-500">
+                      <option value="">Pilih layanan</option>
+                      <option value="Potong rambut wanita">Potong rambut wanita</option>
+                      <option value="Blow / styling">Blow / styling</option>
+                      <option value="Potong + blow">Potong + blow</option>
+                      <option value="Full color">Full color</option>
+                      <option value="Highlight">Highlight</option>
+                      <option value="Ombre / balayage">Ombre / balayage</option>
+                      <option value="Pelurusan / smoothing">Pelurusan / smoothing</option>
+                      <option value="Keratin treatment">Keratin treatment</option>
+                      <option value="Potong anak perempuan">Potong anak perempuan</option>
+                      <option value="Lainnya (tulis di catatan)">Lainnya (tulis di catatan)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="panjang" class="mb-1 block text-[0.8rem] text-zinc-300">Panjang rambut saat ini</label>
+                    <select id="panjang" name="panjang"
+                      class="w-full rounded-xl border border-white/15 bg-black/70 px-3 py-2 text-sm text-zinc-100 outline-none ring-0 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-500">
+                      <option value="">Pilih panjang</option>
+                      <option value="Pendek (di atas bahu)">Pendek (di atas bahu)</option>
+                      <option value="Medium (sebahu)">Medium (sebahu)</option>
+                      <option value="Panjang (di bawah bahu)">Panjang (di bawah bahu)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="catatan" class="mb-1 block text-[0.8rem] text-zinc-300">Catatan tambahan</label>
+                  <textarea id="catatan" name="catatan" rows="3"
+                    class="w-full rounded-xl border border-white/15 bg-black/70 px-3 py-2 text-sm text-zinc-100 outline-none ring-0 placeholder:text-zinc-500 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-500"
+                    placeholder="Contoh: rambut pernah diwarnai 2x, berhijab seharian, ingin warna tidak terlalu terang..."></textarea>
+                  <p class="mt-1 text-[0.75rem] text-zinc-500">Boleh tulis juga kalau kamu bawa referensi foto dari
+                    Pinterest / Instagram.</p>
+                </div>
+
+                <div class="pt-1">
+                  <button type="submit"
+                    class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-yellow-300 via-yellow-500 to-amber-500 px-5 py-2.5 text-[0.8rem] font-semibold uppercase tracking-[0.16em] text-stone-900 shadow-[0_18px_40px_rgba(0,0,0,0.9)] hover:brightness-105">
+                    <span>Kirim ke WhatsApp</span>
+                  </button>
+                  <p class="mt-2 text-[0.75rem] text-zinc-500">
+                    Setelah klik, WhatsApp akan terbuka dengan isi pesan yang sudah terisi otomatis. Kamu masih bisa
+                    mengedit sebelum mengirim ke admin.
+                  </p>
+                </div>
+              </form>
+            </div>
+
+            <!-- Info area -->
+            <div class="space-y-4 text-[0.86rem] text-zinc-200">
+              <div class="rounded-3xl border border-white/10 bg-zinc-950/90 p-4">
+                <p class="text-[0.78rem] font-semibold tracking-[0.18em] text-glory-gold-soft">INFO SALON</p>
+                <ul class="mt-2 space-y-1.5 text-[0.84rem] text-zinc-300">
+                  <li><span class="text-zinc-400">Lokasi:</span> Loa Duri Ilir (naik gunung arah Putak).</li>
+                  <li><span class="text-zinc-400">Jam buka:</span> Setiap hari, pukul 10.00 &ndash; 17.00 WITA.</li>
+                  <li><span class="text-zinc-400">Khusus:</span> Rambut wanita &amp; anak perempuan.</li>
+                  <li><span class="text-zinc-400">Reservasi:</span> Diutamakan melalui WhatsApp.</li>
+                </ul>
+              </div>
+
+              <div class="rounded-3xl border border-white/10 bg-zinc-950/90 p-4">
+                <p class="text-[0.78rem] font-semibold tracking-[0.18em] text-glory-gold-soft">TIPS SEBELUM BOOKING</p>
+                <ul class="mt-2 space-y-1.5 text-[0.84rem] text-zinc-300">
+                  <li>• Untuk layanan coloring, pelurusan, dan keratin, sebaiknya kirim foto rambut terbaru.</li>
+                  <li>• Jika kamu punya jadwal yang ketat, tulis pilihan jam cadangan di kolom catatan.</li>
+                  <li>• Untuk kids haircut, boleh tulis usia anak dan apakah ini kunjungan pertama ke salon.</li>
+                </ul>
+              </div>
+
+              <div class="rounded-3xl border border-white/10 bg-zinc-950/90 p-4">
+                <p class="text-[0.78rem] font-semibold tracking-[0.18em] text-glory-gold-soft">MAU CEPAT TANPA FORM?</p>
+                <p class="mt-2 text-[0.84rem] text-zinc-300">
+                  Kamu juga bisa langsung klik tombol di bawah ini untuk chat admin tanpa mengisi form.
+                </p>
+                <button type="button" onclick="openWhatsApp()"
+                  class="mt-3 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-yellow-300 via-yellow-500 to-amber-500 px-4 py-2 text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-stone-900 shadow-[0_12px_32px_rgba(0,0,0,0.9)] hover:brightness-105">
+                  <span>Chat admin via WhatsApp</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/10 bg-black/90 py-5 text-[0.75rem] text-zinc-400">
+      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5">
+        <div>
+          <p>&copy; <span id="yearSpan"></span> Glory Hair Salon LD. All rights reserved.</p>
+          <p class="text-zinc-500">Women-Only Hair Studio • Loa Duri Ilir, Kutai Kartanegara</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <div
+            class="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-2.5 py-1 text-[0.7rem] text-zinc-300">
+            <span>Instagram:</span>
+            <button type="button" onclick="openInstagram()" class="font-medium text-glory-gold-soft">
+              @gloryhairsalonld
+            </button>
+          </div>
+          <button type="button" onclick="openWhatsApp()"
+            class="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/40 px-2.5 py-1 text-[0.7rem] text-emerald-300">
+            <span>WhatsApp:</span>
+            <span class="font-medium">klik untuk chat</span>
+          </button>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Ganti dengan nomor WA Glory dalam format internasional TANPA +, contoh: 62812xxxxxxx
+    const WHATSAPP_NUMBER = '6281234567890';
+
+    function openWhatsApp() {
+      const message = encodeURIComponent(
+        'Halo Glory Hair Salon LD, saya ingin tanya / booking jadwal hair treatment.'
+      );
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+      window.open(url, '_blank');
+    }
+
+    function handleBookingSubmit(event) {
+      event.preventDefault();
+
+      const nama = document.getElementById('nama').value.trim();
+      const whatsapp = document.getElementById('whatsapp').value.trim();
+      const tanggal = document.getElementById('tanggal').value;
+      const waktu = document.getElementById('waktu').value;
+      const layanan = document.getElementById('layanan').value;
+      const panjang = document.getElementById('panjang').value;
+      const catatan = document.getElementById('catatan').value.trim();
+
+      let text = 'Halo Glory Hair Salon LD, saya ingin booking hair treatment.\n\n';
+      if (nama) text += `Nama: ${nama}\n`;
+      if (whatsapp) text += `Nomor WhatsApp: ${whatsapp}\n`;
+      if (tanggal) text += `Tanggal yang diinginkan: ${tanggal}\n`;
+      if (waktu) text += `Perkiraan jam kedatangan: ${waktu}\n`;
+      if (layanan) text += `Layanan yang diinginkan: ${layanan}\n`;
+      if (panjang) text += `Panjang rambut saat ini: ${panjang}\n`;
+      if (catatan) text += `Catatan tambahan: ${catatan}\n`;
+
+      const encoded = encodeURIComponent(text);
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+      window.open(url, '_blank');
+    }
+
+    function openInstagram() {
+      window.open('https://www.instagram.com/gloryhairsalonld', '_blank');
+    }
+
+    function toggleMobileNav() {
+      const nav = document.getElementById('mobileNav');
+      if (!nav) return;
+      nav.classList.toggle('hidden');
+    }
+
+    const yearSpan = document.getElementById('yearSpan');
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
+
+</html>

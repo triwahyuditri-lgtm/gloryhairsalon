@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glory Hair Salon LD – Women-Only Hair Studio</title>
+  <meta name="description"
+    content="Glory Hair Salon LD adalah women-only hair studio di Loa Duri Ilir. Khusus rambut wanita & anak perempuan: styling, pewarnaan, pelurusan, keratin, dan perawatan rambut." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png" />
+
+  <!-- Tailwind CDN Config -->
+  <script>
+    tailwind = window.tailwind || {};
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            glory: {
+              bg: '#050507',
+              panel: '#101015',
+              soft: '#15151c',
+              gold: '#d4af37',
+              'gold-soft': '#f1e2b8',
+            }
+          },
+          boxShadow: {
+            'glory-soft': '0 18px 40px rgba(0,0,0,0.75)',
+          },
+          borderRadius: {
+            '3xl': '1.5rem',
+          },
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body
+  class="min-h-screen bg-[radial-gradient(circle_at_top,#18151b_0,#050507_55%,#000000_100%)] text-zinc-100 font-sans antialiased">
+  <div class="flex min-h-screen flex-col">
+    <!-- HEADER -->
+    <header
+      class="sticky top-0 z-50 border-b border-yellow-500/40 bg-black/80 backdrop-blur-md supports-[backdrop-filter]:bg-black/60">
+      <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:h-20">
+        <!-- Brand -->
+        <a href="index.html" class="flex items-center gap-3">
+          <div
+            class="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-black shadow-[0_0_0_1px_rgba(212,175,55,0.7),0_10px_25px_rgba(0,0,0,0.85)]">
+            <!-- Logo image -->
+            <img src="images/logo.png" alt="Glory Hair Salon LD" class="h-full w-full object-cover" />
+          </div>
+          <div class="flex flex-col">
+            <span
+              class="text-[0.7rem] font-semibold tracking-[0.2em] text-glory-gold-soft sm:text-[0.75rem] uppercase">GLORY
+              HAIR SALON LD</span>
+            <span class="text-[0.7rem] text-zinc-400">Women-Only Hair Studio • Loa Duri Ilir</span>
+          </div>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden items-center gap-6 text-[0.82rem] text-zinc-300 md:flex">
+          <div class="flex items-center gap-4">
+            <a href="index.html" class="relative pb-0.5 text-glory-gold-soft">
+              <span>Home</span>
+              <span
+                class="absolute inset-x-0 -bottom-0.5 h-px bg-gradient-to-r from-yellow-400 via-amber-300 to-yellow-500"></span>
+            </a>
+            <a href="services.html" class="relative pb-0.5 hover:text-glory-gold-soft">
+              <span>Services</span>
+            </a>
+            <a href="gallery.html" class="relative pb-0.5 hover:text-glory-gold-soft">
+              <span>Gallery</span>
+            </a>
+            <a href="price.html" class="relative pb-0.5 hover:text-glory-gold-soft">Price</a>
+            <a href="booking.html" class="relative pb-0.5 hover:text-glory-gold-soft">Booking</a>
+            <a href="about.html" class="relative pb-0.5 hover:text-glory-gold-soft">About</a>
+            <a href="contact.html" class="relative pb-0.5 hover:text-glory-gold-soft">Contact</a>
+          </div>
+          <button type="button" onclick="openWhatsApp()"
+            class="inline-flex items-center gap-1.5 rounded-full border border-yellow-500/60 bg-gradient-to-br from-yellow-200/20 via-stone-900 to-black px-3.5 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-glory-gold-soft shadow-[0_10px_24px_rgba(0,0,0,0.9)] hover:border-yellow-300 hover:from-yellow-100/40 hover:via-stone-900 hover:to-black">
+            <img src="images/logo-WA.png" alt="WhatsApp logo" class="h-4 w-4" />
+            <span>Book via WhatsApp</span>
+          </button>
+        </nav>
+
+        <!-- Mobile burger -->
+        <button type="button" onclick="toggleMobileNav()"
+          class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-yellow-500/70 bg-black/80 text-yellow-400 md:hidden">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="relative block h-[2px] w-4 rounded-full bg-yellow-400">
+            <span class="absolute -top-1.5 block h-[2px] w-4 rounded-full bg-yellow-400"></span>
+            <span class="absolute top-1.5 block h-[2px] w-4 rounded-full bg-yellow-400"></span>
+          </span>
+        </button>
+      </div>
+
+      <!-- Mobile nav -->
+      <div id="mobileNav" class="hidden border-t border-yellow-500/30 bg-black/95 md:hidden">
+        <div class="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-3 text-sm text-zinc-200">
+          <a href="index.html" class="py-1 text-glory-gold-soft" onclick="toggleMobileNav()">Home</a>
+          <a href="services.html" class="py-1" onclick="toggleMobileNav()">Services</a>
+          <a href="gallery.html" class="py-1" onclick="toggleMobileNav()">Gallery</a>
+          <a href="price.html" class="py-1" onclick="toggleMobileNav()">Price</a>
+          <a href="booking.html" class="py-1" onclick="toggleMobileNav()">Booking</a>
+          <a href="about.html" class="py-1" onclick="toggleMobileNav()">About</a>
+          <a href="contact.html" class="py-1" onclick="toggleMobileNav()">Contact</a>
+          <button type="button" onclick="openWhatsApp()"
+            class="mt-1 inline-flex w-full items-center justify-center gap-1.5 rounded-full border border-yellow-500/60 bg-gradient-to-br from-yellow-200/20 via-stone-900 to-black px-3.5 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-glory-gold-soft shadow-[0_10px_24px_rgba(0,0,0,0.9)]">
+            <img src="images/logo-WA.png" alt="WhatsApp logo" class="h-4 w-4" />
+            <span>Book via WhatsApp</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1">
+      <!-- HERO -->
+      <section class="py-10 sm:py-14">
+        <div class="mx-auto grid max-w-6xl gap-8 px-5 md:grid-cols-[minmax(0,1.25fr)_minmax(0,1.1fr)] md:items-center">
+          <!-- Text -->
+          <div>
+            <p
+              class="inline-flex items-center gap-2 rounded-full border border-yellow-500/50 bg-black/60 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-glory-gold-soft">
+              <span class="h-1.5 w-1.5 rounded-full bg-yellow-400 shadow-[0_0_0_4px_rgba(250,204,21,0.28)]"></span>
+              <span>Women-only hair studio</span>
+            </p>
+            <h1
+              class="mt-4 text-3xl font-semibold tracking-[0.18em] text-zinc-50 sm:text-[2.25rem] sm:leading-snug sm:tracking-[0.22em]">
+              Salon khusus rambut<br class="hidden sm:block" />
+              wanita &amp; anak perempuan
+            </h1>
+            <p class="mt-4 max-w-xl text-[0.94rem] text-zinc-200">
+              Glory Hair Salon LD adalah salon khusus rambut untuk wanita dan anak perempuan. Dari potongan simpel
+              sampai pewarnaan full color, tempat ini jadi ruang aman buat kamu yang mau bebas berekspresi dengan rambut
+              &mdash; tanpa rasa canggung.
+            </p>
+
+            <div class="mt-4 grid max-w-md gap-2 text-[0.8rem] text-zinc-300">
+              <div class="flex items-center gap-2">
+                <span class="inline-flex h-4 w-4 items-center justify-center rounded-full border border-yellow-500/60">
+                  <span class="h-1.5 w-1.5 rounded-full bg-yellow-400"></span>
+                </span>
+                <span>Khusus wanita &amp; anak perempuan</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="inline-flex h-4 w-4 items-center justify-center rounded-full border border-yellow-500/60">
+                  <span class="h-1.5 w-1.5 rounded-full bg-yellow-400"></span>
+                </span>
+                <span>Nyaman untuk yang berhijab, bisa melepas hijab dengan leluasa</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="inline-flex h-4 w-4 items-center justify-center rounded-full border border-yellow-500/60">
+                  <span class="h-1.5 w-1.5 rounded-full bg-yellow-400"></span>
+                </span>
+                <span>Fokus styling, pewarnaan, pelurusan &amp; perawatan rambut</span>
+              </div>
+            </div>
+
+            <p class="mt-4 max-w-md text-[0.82rem] text-zinc-300">
+              Siap upgrade look tanpa jauh-jauh ke kota? Konsultasi dulu lewat WhatsApp, ceritakan kondisi rambutmu,
+              biar kami bantu pilihkan treatment yang paling pas.
+            </p>
+
+            <div class="mt-6 flex flex-wrap items-center gap-3">
+              <button type="button" onclick="openWhatsApp()"
+                class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-yellow-300 via-yellow-500 to-amber-500 px-5 py-2.5 text-[0.8rem] font-semibold uppercase tracking-[0.16em] text-stone-900 shadow-[0_18px_40px_rgba(0,0,0,0.9)] hover:brightness-105">
+                <span>Booking via WhatsApp</span>
+              </button>
+              <a href="services.html"
+                class="inline-flex items-center gap-2 rounded-full border border-yellow-500/60 bg-black/70 px-4 py-2 text-[0.78rem] uppercase tracking-[0.16em] text-glory-gold-soft hover:border-yellow-300">
+                <span>Lihat layanan</span>
+              </a>
+            </div>
+
+            <div class="mt-5 flex flex-wrap items-center gap-4 text-[0.75rem] text-zinc-400">
+              <div>
+                <span class="font-semibold text-glory-gold-soft">Lokasi:</span>
+                Loa Duri Ilir, naik gunung arah Putak.
+              </div>
+              <div>
+                <span class="font-semibold text-glory-gold-soft">Jam buka:</span>
+                Setiap hari, 10.00 &ndash; 17.00 WITA.
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual side -->
+          <div
+            class="space-y-4 rounded-3xl border border-yellow-500/40 bg-black/70 p-4 shadow-[0_20px_50px_rgba(0,0,0,0.95)]">
+            <div class="relative overflow-hidden rounded-3xl border border-yellow-500/40 bg-zinc-900/70">
+              <!-- Example hero image (replace src) -->
+              <img src="/images/interior_salon.jpg" alt="Hair coloring at women-only hair salon"
+                class="h-64 w-full object-cover" />
+              <div
+                class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
+              </div>
+              <div class="absolute bottom-3 left-3 text-[0.76rem]">
+                <p
+                  class="inline-flex items-center rounded-full bg-black/70 px-2.5 py-1 text-[0.7rem] text-glory-gold-soft">
+                  Hair Coloring • Women-only
+                </p>
+              </div>
+            </div>
+
+            <div class="grid gap-3 sm:grid-cols-2">
+              <div
+                class="rounded-2xl border border-white/10 bg-[radial-gradient(circle_at_top,#111827_0,#020617_70%)] p-3 text-[0.78rem] text-zinc-200">
+                <p class="text-[0.78rem] font-semibold tracking-[0.16em] text-glory-gold-soft">STYLING &amp; BLOW</p>
+                <p class="mt-1 text-[0.8rem] text-zinc-300">Blow natural, soft waves, atau styling untuk acara spesial.
+                  Cocok untuk kondangan, wisuda, hingga acara kantor.</p>
+              </div>
+              <div
+                class="rounded-2xl border border-white/10 bg-[radial-gradient(circle_at_top,#020617_0,#000000_70%)] p-3 text-[0.78rem] text-zinc-200">
+                <p class="text-[0.78rem] font-semibold tracking-[0.16em] text-glory-gold-soft">KERATIN &amp; PERAWATAN
+                </p>
+                <p class="mt-1 text-[0.8rem] text-zinc-300">Treatment untuk rambut kering, kusut, atau sering diwarnai,
+                  supaya kembali halus dan mudah diatur.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HIGHLIGHT LAYANAN -->
+      <section class="py-6 pb-10">
+        <div class="mx-auto max-w-6xl px-5">
+          <div class="max-w-xl">
+            <h2 class="text-xs font-semibold uppercase tracking-[0.26em] text-glory-gold-soft">Layanan utama</h2>
+            <p class="mt-2 text-lg font-medium text-zinc-50">Layanan utama untuk rambut kamu</p>
+            <p class="mt-2 text-[0.86rem] text-zinc-300">
+              Semua treatment di Glory fokus ke satu hal: rambut yang sehat, rapi, dan bikin kamu lebih pede setiap
+              hari.
+            </p>
+          </div>
+
+          <div class="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <!-- Card 1 -->
+            <article
+              class="flex h-full flex-col rounded-3xl border border-white/10 bg-black/80 p-4 text-[0.86rem] text-zinc-200 shadow-[0_14px_35px_rgba(0,0,0,0.9)]">
+              <div class="mb-2 flex items-center justify-between gap-2">
+                <h3 class="text-sm font-semibold text-zinc-50">Hair Styling &amp; Blow</h3>
+                <span class="text-xs text-glory-gold-soft">~1 jam</span>
+              </div>
+              <p class="text-[0.84rem] text-zinc-300">
+                Untuk kamu yang mau rambut rapi tanpa ribet. Dari blow natural sampai styling untuk acara spesial, kami
+                bantu bentuk rambut sesuai karakter wajah dan gaya kamu.
+              </p>
+            </article>
+
+            <!-- Card 2 -->
+            <article
+              class="flex h-full flex-col rounded-3xl border border-white/10 bg-black/80 p-4 text-[0.86rem] text-zinc-200 shadow-[0_14px_35px_rgba(0,0,0,0.9)]">
+              <div class="mb-2 flex items-center justify-between gap-2">
+                <h3 class="text-sm font-semibold text-zinc-50">Hair Coloring</h3>
+                <span class="text-xs text-glory-gold-soft">Full, Ombre, Highlight</span>
+              </div>
+              <p class="text-[0.84rem] text-zinc-300">
+                Ingin tampilan baru dengan warna yang tetap elegan? Pilih full color, highlight halus, atau ombre yang
+                lembut. Sebelum mulai, kita selalu konsultasi dulu supaya hasilnya cocok dengan kulit dan gaya
+                sehari-hari.
+              </p>
+            </article>
+
+            <!-- Card 3 -->
+            <article
+              class="flex h-full flex-col rounded-3xl border border-white/10 bg-black/80 p-4 text-[0.86rem] text-zinc-200 shadow-[0_14px_35px_rgba(0,0,0,0.9)]">
+              <div class="mb-2 flex items-center justify-between gap-2">
+                <h3 class="text-sm font-semibold text-zinc-50">Straightening &amp; Smoothing</h3>
+                <span class="text-xs text-glory-gold-soft">Anti frizz</span>
+              </div>
+              <p class="text-[0.84rem] text-zinc-300">
+                Untuk rambut mengembang dan susah diatur. Treatment ini bantu bikin rambut tampak lebih jatuh, rapi, dan
+                shiny &mdash; tanpa kesan kaku berlebihan.
+              </p>
+            </article>
+
+            <!-- Card 4 -->
+            <article
+              class="flex h-full flex-col rounded-3xl border border-white/10 bg-black/80 p-4 text-[0.86rem] text-zinc-200 shadow-[0_14px_35px_rgba(0,0,0,0.9)]">
+              <div class="mb-2 flex items-center justify-between gap-2">
+                <h3 class="text-sm font-semibold text-zinc-50">Keratin Treatment</h3>
+                <span class="text-xs text-glory-gold-soft">Rambut halus</span>
+              </div>
+              <p class="text-[0.84rem] text-zinc-300">
+                Cocok untuk rambut yang sering diwarnai atau kena panas catokan. Keratin treatment bantu mengurangi
+                frizz, menambah kilau, dan bikin rambut terasa lebih sehat saat disentuh.
+              </p>
+            </article>
+          </div>
+
+          <div class="mt-4 text-[0.82rem] text-zinc-400">
+            <p>Glory juga melayani <span class="font-semibold text-glory-gold-soft">potongan anak perempuan</span>
+              dengan suasana santai dan ramah.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHY WOMEN-ONLY -->
+      <section class="py-8">
+        <div class="mx-auto max-w-6xl px-5">
+          <div
+            class="grid gap-6 rounded-3xl border border-yellow-500/40 bg-black/80 p-5 text-[0.88rem] text-zinc-200 shadow-[0_18px_40px_rgba(0,0,0,0.95)] md:grid-cols-[minmax(0,1.3fr)_minmax(0,1.1fr)] md:p-6">
+            <div>
+              <h2 class="text-xs font-semibold uppercase tracking-[0.26em] text-glory-gold-soft">Why women-only?</h2>
+              <p class="mt-2 text-lg font-medium text-zinc-50">Kenapa Glory hanya untuk wanita &amp; anak perempuan?</p>
+              <p class="mt-3 text-[0.86rem] text-zinc-300">
+                Glory Hair Salon LD lahir dari keresahan sederhana: banyak perempuan yang ingin merawat rambut, tapi
+                kurang nyaman di tempat yang terlalu ramai dan campur. Di Glory, kamu bisa leluasa melepas hijab,
+                diskusi jujur soal rambut, dan duduk santai tanpa rasa sungkan.
+              </p>
+              <p class="mt-2 text-[0.86rem] text-zinc-300">
+                Tim kami terdiri dari stylist perempuan yang terbiasa menangani berbagai jenis rambut &mdash; dari yang
+                tipis, tebal, lurus, ikal, sampai yang sudah sering diwarnai. Tujuannya satu: kamu pulang dengan rambut
+                yang lebih rapi, dan hati yang lebih ringan.
+              </p>
+
+              <div class="mt-4 grid gap-3 text-[0.84rem] text-zinc-200 sm:grid-cols-3">
+                <div class="rounded-2xl border border-white/10 bg-zinc-950/80 p-3">
+                  <p class="text-[0.78rem] font-semibold text-glory-gold-soft">Privasi &amp; kenyamanan</p>
+                  <p class="mt-1 text-[0.8rem] text-zinc-300">Ruang yang ramah untuk perempuan, termasuk pengguna
+                    hijab.</p>
+                </div>
+                <div class="rounded-2xl border border-white/10 bg-zinc-950/80 p-3">
+                  <p class="text-[0.78rem] font-semibold text-glory-gold-soft">Stylist perempuan</p>
+                  <p class="mt-1 text-[0.8rem] text-zinc-300">Lebih nyambung diajak diskusi dan peka dengan kebutuhan
+                    rambut wanita.</p>
+                </div>
+                <div class="rounded-2xl border border-white/10 bg-zinc-950/80 p-3">
+                  <p class="text-[0.78rem] font-semibold text-glory-gold-soft">Suasana santai</p>
+                  <p class="mt-1 text-[0.8rem] text-zinc-300">Tenang, homy, dan tidak terburu-buru.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4 text-[0.84rem] text-zinc-200">
+              <div class="overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/80">
+                <img src="/images/warna-rambut.jpg" alt="Women-only hair salon interior"
+                  class="h-52 w-full object-cover" />
+              </div>
+              <div class="rounded-3xl border border-white/10 bg-zinc-950/90 p-4">
+                <p class="text-[0.78rem] font-semibold tracking-[0.16em] text-glory-gold-soft">UNTUK SIAPA?</p>
+                <p class="mt-2 text-[0.8rem] text-zinc-300">
+                  Glory cocok untuk kamu yang ingin:
+                </p>
+                <ul class="mt-1 space-y-1.5 text-[0.8rem] text-zinc-300">
+                  <li>• Potong ujung rambut dan dirapikan berkala.</li>
+                  <li>• Ganti warna rambut dengan hasil yang tetap elegan.</li>
+                  <li>• Meluruskan rambut yang mengembang atau susah diatur.</li>
+                  <li>• Membawa anak perempuan potong rambut dengan suasana ramah.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MINI GALLERY -->
+      <section class="py-8">
+        <div class="mx-auto max-w-6xl px-5">
+          <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h2 class="text-xs font-semibold uppercase tracking-[0.26em] text-glory-gold-soft">Gallery</h2>
+              <p class="mt-2 text-lg font-medium text-zinc-50">Hasil styling &amp; pewarnaan di Glory</p>
+              <p class="mt-2 max-w-xl text-[0.86rem] text-zinc-300">
+                Setiap rambut punya cerita sendiri. Di sini kamu bisa lihat beberapa hasil kerja tim Glory &mdash; dari
+                pewarnaan lembut sampai styling untuk acara penting.
+                <span class="italic">Semua foto diambil langsung dari hasil kerja di Glory Hair Salon LD.</span>
+              </p>
+            </div>
+            <div class="flex gap-3 text-[0.8rem]">
+              <a href="gallery.html"
+                class="inline-flex items-center gap-2 rounded-full border border-yellow-500/60 bg-black/80 px-4 py-2 text-[0.78rem] uppercase tracking-[0.16em] text-glory-gold-soft hover:border-yellow-300">
+                <span>Lihat gallery lengkap</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-5 grid gap-3 sm:grid-cols-2 md:grid-cols-3">
+            <!-- Example gallery images (replace src) -->
+            <div class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/80">
+              <img src="/images/style-rambut-2.jpg" alt="Soft waves styling" class="h-44 w-full object-cover" />
+            </div>
+            <div class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/80">
+              <img src="/images/style-rambut-3.jpg" alt="Hair coloring highlight" class="h-44 w-full object-cover" />
+            </div>
+            <div class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/80">
+              <img src="/images/style-rambut-4.jpg" alt="Straight smooth hair" class="h-44 w-full object-cover" />
+            </div>
+            <div class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/80">
+              <img src="/images/style-rambut-5.jpg" alt="Ombre hair color" class="h-44 w-full object-cover" />
+            </div>
+            <div class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/80">
+              <img src="/images/style-rambut-6.jpg" alt="Hair drying" class="h-44 w-full object-cover" />
+            </div>
+            <div class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/80">
+              <img src="/images/style-rambut-7.jpg" alt="Hair treatment" class="h-44 w-full object-cover" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section class="py-8 pb-10">
+        <div class="mx-auto max-w-6xl px-5">
+          <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h2 class="text-xs font-semibold uppercase tracking-[0.26em] text-glory-gold-soft">Testimoni</h2>
+              <p class="mt-2 text-lg font-medium text-zinc-50">Cerita singkat dari pelanggan Glory</p>
+            </div>
+          </div>
+
+          <div class="mt-4 grid gap-4 md:grid-cols-3">
+            <!-- Testi 1 -->
+            <article
+              class="flex h-full flex-col rounded-3xl border border-white/10 bg-black/85 p-4 text-[0.84rem] text-zinc-200 shadow-[0_16px_38px_rgba(0,0,0,0.95)]">
+              <div class="mb-3 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="flex h-8 w-8 items-center justify-center rounded-full bg-zinc-900 text-[0.8rem] font-semibold text-glory-gold-soft">
+                    <img src="/images/sita-uwu.png" alt="Sita Uwu" class="h-full w-full rounded-full object-cover" />
+                  </div>
+                  <div class="flex flex-col text-[0.78rem]">
+                    <span class="font-semibold text-zinc-100">sita uwu</span>
+                    <span class="text-zinc-400">Pelanggan styling &amp; blow</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-0.5 text-yellow-400">
+                  <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z" />
+                  </svg>
+                  <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z" />
+                  </svg>
+                  <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z" />
+                  </svg>
+                  <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z" />
+                  </svg>
+                  <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z" />
+                  </svg>
+                </div>
+              </div>
+              <p>
+                “harga juga termasuk murahh, treatmennya enak, bahan yg dipake berkwalitas, stylish nya profrsional,
+                ramah bangett parahhh, tempatnya enak dingin ber ac, wangi jugaa.
+                sekarang gaperlu jauh jauh lagi ke kota kalo mau nyari salon yg bener bener profesional 😍😍😍
+                sukses selalu glory hair salonnn.
+              </p>
+            </article>
+
+            <!-- Testi 2 -->
+            <article
+              class="flex h-full flex-col rounded-3xl border border-white/10 bg-black/85 p-4 text-[0.84rem] text-zinc-200 shadow-[0_16px_38px_rgba(0,0,0,0.95)]">
+              <div class="mb-3 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="flex h-8 w-8 items-center justify-center rounded-full bg-zinc-900 text-[0.8rem] font-semibold text-glory-gold-soft">
+                    <img src="/images/listia.png" alt="Listia Nurjanah"
+                      class="h-full w-full rounded-full object-cover" />
+                  </div>
+                  <div class="flex flex-col text-[0.78rem]">
+                    <span class="font-semibold text-zinc-100">Listia Nurjanah</span>
+                    <span class="text-zinc-400">Penataan rambut, Perawatan keratin</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-0.5 text-yellow-400">
+                  <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z" />
+                  </svg>
+                  <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z" />
+                  </svg>
+                  <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z" />
+                  </svg>
+                  <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z" />
+                  </svg>
+                  <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z" />
+                  </svg>
+                </div>
+              </div>
+              <p>
+                “Salon terbaik dengan harga terjangkau, ramah dikantong pelajar sampe irt. Owner dan hair stylist sangat
+                sangat ramah, pelayanan ⭐10
+                Treatment keratin hasilnya lembut bgttt, rambut jadi gampang di atur dan ga ngembang lagi, bestlahhh✨”
+              </p>
+            </article>
+
+            <!-- Testi 3 -->
+            <article
+              class="flex h-full flex-col rounded-3xl border border-white/10 bg-black/85 p-4 text-[0.84rem] text-zinc-200 shadow-[0_16px_38px_rgba(0,0,0,0.95)]">
+              <div class="mb-3 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="flex h-8 w-8 items-center justify-center rounded-full bg-zinc-900 text-[0.8rem] font-semibold text-glory-gold-soft">
+                    C
+                  </div>
+                  <div class="flex flex-col text-[0.78rem]">
+                    <span class="font-semibold text-zinc-100">Cleo Aurora Welldy</span>
+                    <span class="text-zinc-400">Penataan rambut</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-0.5 text-yellow-400">
+                  <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z" />
+                  </svg>
+                  <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z" />
+                  </svg>
+                  <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z" />
+                  </svg>
+                  <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z" />
+                  </svg>
+                  <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.817 1.48-8.279L.001 9.306l8.332-1.151L12 .587z" />
+                  </svg>
+                </div>
+              </div>
+              <p>
+                “Kakanya ramah hasil potongan dan stylingnya rapi, tempat nyaman ada AC.. jgn ragu bubuhanmu
+                kesini🌷hargaa terjangkauu”
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- CTA PENUTUP -->
+      <section class="pb-10">
+        <div class="mx-auto max-w-6xl px-5">
+          <div
+            class="rounded-3xl border border-yellow-500/40 bg-gradient-to-r from-black via-zinc-900 to-black px-5 py-6 text-[0.9rem] text-zinc-200 shadow-[0_20px_50px_rgba(0,0,0,0.95)] sm:px-7 sm:py-7">
+            <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <div>
+                <h2 class="text-sm font-semibold tracking-[0.18em] text-glory-gold-soft">Ready for a hair refresh?
+                </h2>
+                <p class="mt-1 text-[0.95rem] font-medium text-zinc-50">
+                  Rambutmu lagi butuh disayang?
+                </p>
+                <p class="mt-1 max-w-xl text-[0.86rem] text-zinc-300">
+                  Glory Hair Salon LD buka setiap hari pukul <span class="font-semibold text-glory-gold-soft">10.00
+                    &ndash; 17.00 WITA</span> di Loa Duri Ilir (naik gunung arah Putak). Kirim foto rambutmu lewat
+                  WhatsApp, biar kami bantu sarankan treatment yang paling pas.
+                </p>
+              </div>
+              <div class="flex flex-row gap-3 items-center">
+                <button type="button" onclick="openWhatsApp()"
+                  class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-yellow-300 via-yellow-500 to-amber-500 px-5 py-2.5 text-[0.8rem] font-semibold uppercase tracking-[0.16em] text-stone-900 shadow-[0_18px_40px_rgba(0,0,0,0.9)] hover:brightness-105">
+                  <span>Chat admin via WhatsApp</span>
+                </button>
+                <a href="price.html"
+                  class="inline-flex items-center justify-center gap-2 rounded-full border border-yellow-500/60 bg-black/70 px-4 py-2 text-[0.78rem] uppercase tracking-[0.16em] text-glory-gold-soft hover:border-yellow-300">
+                  <span>Lihat price list</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- MAPS -->
+    <section class="pb-10">
+      <div class="mx-auto max-w-6xl px-5">
+        <h2 class="mb-5 text-center text-sm font-semibold tracking-[0.18em] text-glory-gold-soft">Our Location</h2>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.5977264738503!2d117.06930319999998!3d-0.6025037999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df687f84453184f%3A0xf28e149782074a72!2sGlory%20Salon%20Loa%20Duri!5e0!3m2!1sid!2sid!4v1764229136101!5m2!1sid!2sid"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="w-full rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.95)]"></iframe>
+      </div>
+    </section>
+    </main>
+    <!-- FOOTER -->
+    <footer class="border-t border-white/10 bg-black/90 py-5 text-[0.75rem] text-zinc-400">
+      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5">
+        <div>
+          <p>&copy; <span id="yearSpan"></span> Glory Hair Salon LD. All rights reserved.</p>
+          <p class="text-zinc-500">Women-Only Hair Studio • Loa Duri Ilir, Kutai Kartanegara</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <div
+            class="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-2.5 py-1 text-[0.7rem] text-zinc-300">
+            <span>Instagram:</span>
+            <button type="button" onclick="openInstagram()" class="font-medium text-glory-gold-soft">
+              @gloryhairsalonld
+            </button>
+          </div>
+          <button type="button" onclick="openWhatsApp()"
+            class="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/40 px-2.5 py-1 text-[0.7rem] text-emerald-300">
+            <span>WhatsApp:</span>
+            <span class="font-medium">klik untuk chat</span>
+          </button>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <script>
+    // Ganti dengan nomor WA Glory dalam format internasional TANPA +, contoh: 62812xxxxxxx
+    const WHATSAPP_NUMBER = '6281234567890';
+
+
+    function openWhatsApp() {
+      const message = encodeURIComponent(
+        'Halo Glory Hair Salon LD, saya ingin tanya / booking jadwal hair treatment.'
+      );
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+      window.open(url, '_blank');
+    }
+
+
+    function openInstagram() {
+      window.open('https://www.instagram.com/gloryhairsalonld', '_blank');
+    }
+
+
+    function toggleMobileNav() {
+      const nav = document.getElementById('mobileNav');
+      if (!nav) return;
+      nav.classList.toggle('hidden');
+    }
+
+
+    const yearSpan = document.getElementById('yearSpan');
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
+
+
+</html>
